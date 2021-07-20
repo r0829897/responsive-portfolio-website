@@ -1,0 +1,58 @@
+$primary-color: #444;
+$secondary-color: #eece1a;
+$show-home-image: true;
+$home-image: url('../img/background.jpg');
+$background-opacity: 0.9;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.text-secondary {
+ color: $secondary-color;
+}
+
+@function setTextColor($color) {
+  @if (lightness($color) > 60) {
+    @return #333;
+  } @else {
+    @return white;
+  }
+}
+
+@mixin set-background($color) {
+  background: $color;
+  color: set-text-color($color);
+}
+
+@mixin ease-out {
+  transition: all 1.5s ease-out;
+}
+
+@mixin background {
+  @if ($show-home-image) {
+    &#bg-img {
+      background: $home-image;
+      background-attachment: fixed;
+      background-size: cover;
+
+      &:after {
+        content: '';
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba($primary-color, $background-opacity);
+      }
+    }
+  }
+}
