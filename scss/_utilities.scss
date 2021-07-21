@@ -1,0 +1,22 @@
+// Button Styles
+.btn {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: none;
+  margin-bottom: 0.3rem;
+
+  &:hover {
+    @include set-background($secondary-color);
+    @include ease-out;
+  }
+}
+
+.btn-dark {
+  @extend .btn;
+  @include set-background(darken($primary-color, 50));
+}
+
+.btn-light {
+  @extend .btn;
+  @include set-background(lighten($primary-color, 50));
+}
