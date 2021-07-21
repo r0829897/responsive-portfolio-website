@@ -19,7 +19,7 @@ a {
  color: $secondary-color;
 }
 
-@function setTextColor($color) {
+@function set-text-color($color) {
   @if (lightness($color) > 60) {
     @return #333;
   } @else {
@@ -55,6 +55,18 @@ a {
       }
     }
   }
+}
+
+@mixin grid-areas {
+  .bio-image { grid-area: bioimage; }
+  
+  .bio { grid-area: bio; }
+  
+  .job-1 { grid-area: job1; }
+  
+  .job-2 { grid-area: job2; }
+  
+  .job-3 { grid-area: job3; }
 }
 
 // Media Query Mixins
